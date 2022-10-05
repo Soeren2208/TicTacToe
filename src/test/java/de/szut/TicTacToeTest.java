@@ -33,4 +33,10 @@ public class TicTacToeTest
         assertEquals("Field is occupied!", exception.getMessage());
     }
 
+    @Test
+    public void testgivenFirstTurnWhenNextPlayerThenX(){
+        assertEquals('X', tictactoe.nextPlayer(), "Falscher Spieler!");
+    }
+
+
 }
