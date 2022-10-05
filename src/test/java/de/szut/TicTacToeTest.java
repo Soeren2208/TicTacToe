@@ -44,6 +44,13 @@ public class TicTacToeTest
         assertEquals('O', tictactoe.nextPlayer(), "Falscher Spieler!");
     }
 
+    @Test
+    public void GivenPlayAndNoWinner_WhenPlay_ThenNoWinner(){
+        String actual = tictactoe.play(1, 1);
+        assertEquals("No winner!", actual);
+    }
+
+
 
 
 }

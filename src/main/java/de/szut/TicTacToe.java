@@ -5,11 +5,12 @@ public class TicTacToe
     private Character[][] board = {{'0', '0', '0'}, {'0', '0', '0'}, {'0', '0', '0'}};
     private char lastPlayer = 'O';
 
-    public void play(int x, int y) {
+    public String play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
         setField(x, y);
         this.lastPlayer = nextPlayer();
+        return "No winner!";
     }
 
     private void setField(int x, int y) {
