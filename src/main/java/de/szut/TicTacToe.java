@@ -22,6 +22,8 @@ public class TicTacToe
             return true;
         if(isVerticalWin())
             return true;
+        if(isTopBottomDiagonalLineWin())
+            return true;
         return false;
     }
 
@@ -41,6 +43,13 @@ public class TicTacToe
             if(board[i][0] + board[i][1] + board[i][2] == playerTotal){
                 return true;
             }
+        }
+        return false;
+    }
+
+    private boolean isTopBottomDiagonalLineWin(){
+        if(board[0][0] + board[1][1] + board[2][2] == this.lastPlayer*3){
+            return true;
         }
         return false;
     }

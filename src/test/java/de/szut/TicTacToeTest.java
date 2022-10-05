@@ -71,4 +71,15 @@ public class TicTacToeTest
         assertEquals("O is the winner", actual);
     }
 
+    @Test
+    public void givenVerticalWinTopBottomDiagonalLine_WhenPlay_ThenWinner(){
+        tictactoe.play(1, 1);  //X
+        tictactoe.play(1, 2);  //O
+        tictactoe.play(2, 2);  //X
+        tictactoe.play(2, 3);  //O
+        String actual = tictactoe.play(3, 3);
+        assertEquals("X is the winner", actual);
+    }
+
+
 }
