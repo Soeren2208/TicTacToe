@@ -7,12 +7,20 @@ public class TicTacToe
     public void play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
-        if(board[x-1][y-1] != '0'){
+        setField(x, y);
+    }
+
+    private void setField(int x, int y) {
+        if(isFieldOccupied(board[x - 1][y - 1])){
             throw new RuntimeException("Field is occupied!");
         }
         else{
-            board[x-1][y-1] = 'X';
+            board[x -1][y -1] = 'X';
         }
+    }
+
+    private boolean isFieldOccupied(Character character) {
+        return character != '0';
     }
 
     private void checkAxis(int axis){
