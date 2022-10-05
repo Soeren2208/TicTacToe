@@ -19,14 +19,14 @@ public class TicTacToeTest
     public void givenXOutsideBoard_WhenPlay_ThrowRunTimeException() {
         RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> this.tictactoe.play(5, 2), "RuntimeException should have been thrown!");
-        assertEquals("X is outside board!", exception.getMessage());
+        assertEquals("Try is outside board!", exception.getMessage());
     }
 
     @Test
     public void givenYOutsideBoard_WhenPlay_ThrowRunTimeException() {
         RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> this.tictactoe.play(2, 5), "RuntimeException should have been thrown!");
-        assertEquals("Y is outside board!", exception.getMessage());
+        assertEquals("Try is outside board!", exception.getMessage());
     }
 
 }
