@@ -59,9 +59,4 @@ public class TicTacToeTest
         String actual = tictactoe.play(3, 1); //X
         assertEquals("X is the winner", actual);
     }
-
-
-
-
-
 }

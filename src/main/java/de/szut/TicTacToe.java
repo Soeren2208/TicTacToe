@@ -4,6 +4,7 @@ public class TicTacToe
 {
     private Character[][] board = {{'0', '0', '0'}, {'0', '0', '0'}, {'0', '0', '0'}};
     private char lastPlayer = 'O';
+    private static final int SIZE = 3;
 
     public String play(int x, int y) {
         checkAxis(x);
@@ -11,11 +12,21 @@ public class TicTacToe
         this.lastPlayer = nextPlayer();
         setField(x, y, this.lastPlayer);
         for(int i =0; i < 3; i++){
-            if(board[0][i] == lastPlayer && board[1][i] == lastPlayer && board[2][i] == lastPlayer)
+            if(isWin()){
                 return lastPlayer + " is the winner";
+            }
         }
         return "No winner!";
     }
+
+    private boolean isWin() {
+        for(int i =0; i < SIZE; i++){
+            if(board[0][i] + board[1][i] + board[2][i] == (lastPlayer*SIZE))
+                return true;
+        }
+        return false;
+    }
+
 
     private void setField(int x, int y, char lastPlayer) {
         if(isFieldOccupied(board[x - 1][y - 1])){
