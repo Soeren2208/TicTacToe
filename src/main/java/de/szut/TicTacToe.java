@@ -24,13 +24,14 @@ public class TicTacToe
             return true;
         if(isTopBottomDiagonalLineWin())
             return true;
+        if(isBottomTopDiagonalLineWin())
+            return true;
         return false;
     }
 
     private boolean isHorizontalWin(){
-        int playerTotal = lastPlayer * 3;
         for(int i =0; i < SIZE; i++){
-            if(board[0][i] + board[1][i] + board[2][i] == playerTotal){
+            if(board[0][i] + board[1][i] + board[2][i] == lastPlayer * 3){
                 return true;
             }
         }
@@ -38,9 +39,8 @@ public class TicTacToe
     }
 
     private boolean isVerticalWin(){
-        int playerTotal = lastPlayer * 3;
         for(int i =0; i < SIZE; i++){
-            if(board[i][0] + board[i][1] + board[i][2] == playerTotal){
+            if(board[i][0] + board[i][1] + board[i][2] == lastPlayer * 3){
                 return true;
             }
         }
@@ -49,6 +49,13 @@ public class TicTacToe
 
     private boolean isTopBottomDiagonalLineWin(){
         if(board[0][0] + board[1][1] + board[2][2] == this.lastPlayer*3){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isBottomTopDiagonalLineWin(){
+        if(board[0][2] + board[1][1] + board[2][0] == this.lastPlayer*3){
             return true;
         }
         return false;
