@@ -50,6 +50,17 @@ public class TicTacToeTest
         assertEquals("No winner!", actual);
     }
 
+    @Test
+    public void givenHorizontalWin_WhenPlay_ThenWinner(){
+        tictactoe.play(1, 1); //X
+        tictactoe.play(1, 2); //O
+        tictactoe.play(2, 1); //X
+        tictactoe.play(2, 2); //O
+        String actual = tictactoe.play(3, 1); //X
+        assertEquals("X is the winner", actual);
+    }
+
+
 
 
 

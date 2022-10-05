@@ -8,17 +8,21 @@ public class TicTacToe
     public String play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
-        setField(x, y);
         this.lastPlayer = nextPlayer();
+        setField(x, y, this.lastPlayer);
+        for(int i =0; i < 3; i++){
+            if(board[0][i] == lastPlayer && board[1][i] == lastPlayer && board[2][i] == lastPlayer)
+                return lastPlayer + " is the winner";
+        }
         return "No winner!";
     }
 
-    private void setField(int x, int y) {
+    private void setField(int x, int y, char lastPlayer) {
         if(isFieldOccupied(board[x - 1][y - 1])){
             throw new RuntimeException("Field is occupied!");
         }
         else{
-            board[x -1][y -1] = 'X';
+            board[x -1][y -1] = lastPlayer;
         }
     }
 
