@@ -11,26 +11,38 @@ public class TicTacToe
         checkAxis(y);
         this.lastPlayer = nextPlayer();
         setField(x, y, this.lastPlayer);
-        for(int i =0; i < 3; i++){
-            if(isWin()){
-                return lastPlayer + " is the winner";
-            }
+        if(isWin()){
+            return lastPlayer + " is the winner";
         }
         return "No winner!";
     }
 
     private boolean isWin() {
+        if(isHorizontalWin())
+            return true;
+        if(isVerticalWin())
+            return true;
+        return false;
+    }
+
+    private boolean isHorizontalWin(){
         int playerTotal = lastPlayer * 3;
         for(int i =0; i < SIZE; i++){
             if(board[0][i] + board[1][i] + board[2][i] == playerTotal){
                 return true;
             }
-            else if(playerTotal == (board[i][0] + board[i][1] + board[i][2])){
+        }
+        return false;
+    }
+
+    private boolean isVerticalWin(){
+        int playerTotal = lastPlayer * 3;
+        for(int i =0; i < SIZE; i++){
+            if(board[i][0] + board[i][1] + board[i][2] == playerTotal){
                 return true;
             }
         }
         return false;
-
     }
 
 
