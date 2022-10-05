@@ -38,5 +38,12 @@ public class TicTacToeTest
         assertEquals('X', tictactoe.nextPlayer(), "Falscher Spieler!");
     }
 
+    @Test
+    public void testGivenLastTurnWasXWhenNextPlayerThenO(){
+        tictactoe.play(1, 1);
+        assertEquals('O', tictactoe.nextPlayer(), "Falscher Spieler!");
+    }
+
+
 
 }

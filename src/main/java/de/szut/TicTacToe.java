@@ -3,11 +3,13 @@ package de.szut;
 public class TicTacToe
 {
     private Character[][] board = {{'0', '0', '0'}, {'0', '0', '0'}, {'0', '0', '0'}};
+    private char lastPlayer = 'O';
 
     public void play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
         setField(x, y);
+        this.lastPlayer = nextPlayer();
     }
 
     private void setField(int x, int y) {
@@ -30,6 +32,9 @@ public class TicTacToe
     }
 
     public char nextPlayer() {
+        if(this.lastPlayer == 'X'){
+            return 'O';
+        }
         return 'X';
     }
 }
