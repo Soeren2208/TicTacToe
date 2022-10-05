@@ -25,4 +25,12 @@ public class TicTacToeTest
         assertEquals("Try is outside board!", exception.getMessage());
     }
 
+    @Test
+    public void givenFieldOccupied_WhenPlay_ThrowRuntimeException(){
+        this.tictactoe.play(1,1);
+        RuntimeException exception = assertThrows(RuntimeException.class,
+                () -> this.tictactoe.play(1, 1), "RuntimeException should have been thrown!");
+        assertEquals("Field is occupied!", exception.getMessage());
+    }
+
 }
