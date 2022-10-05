@@ -91,6 +91,21 @@ public class TicTacToeTest
         assertEquals("X is the winner", actual);
     }
 
+    @Test
+    public void givenAllFieldsAreFilled_WhenPlay_ThenDraw(){
+        tictactoe.play(1, 1);  //X
+        tictactoe.play(1, 2);  //O
+        tictactoe.play(1, 3);  //X
+        tictactoe.play(2, 1);  //O
+        tictactoe.play(2, 3);  //X
+        tictactoe.play(2, 2);  //O
+        tictactoe.play(3, 1);  //X
+        tictactoe.play(3, 3);  //O
+        String actual = tictactoe.play(3, 2);
+        assertEquals("The result is draw!", actual);
+    }
+
+
 
 
 }
